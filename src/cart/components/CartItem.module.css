@@ -1,0 +1,19 @@
+.cartItem {
+  display: flex;
+  justify-content: space-between;
+}
+
+.actions {
+  width: 20%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.imageContainer {
+  width: 5rem;
+}
+
+.image {
+  width: 100%;
+}

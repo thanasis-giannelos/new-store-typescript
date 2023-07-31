@@ -1,0 +1,11 @@
+.gallery {
+  width: 70%;
+  margin: 1rem auto;
+}
+
+.gallery ul {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(4, 25%);
+  gap: 1rem;
+}

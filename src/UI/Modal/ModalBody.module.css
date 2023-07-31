@@ -1,0 +1,9 @@
+.body {
+  z-index: 30;
+  position: relative;
+  top: 30%;
+  width: 70%;
+  margin: 0 auto;
+  /* border-radius: 14px; */
+  background-color: white;
+}

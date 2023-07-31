@@ -1,0 +1,40 @@
+.galleryItem > *{
+  padding: 0.5rem;
+}
+
+.imgContainer {
+  height: 10rem;
+  width: 100%;
+}
+
+.imgContainer img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.actions {
+  margin: 0 auto;
+  width: 60%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.title {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 600px;
+
+}
+
+.description {
+  white-space: normal;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: 5rem;
+}
+
+.price {
+  font-weight: 600;
+}
