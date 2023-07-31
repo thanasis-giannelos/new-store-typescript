@@ -1,15 +1,14 @@
-import React, { useContext } from 'react';
-import Button from '../../UI/Button/Button';
-import { CartContext } from '../context/CartContext';
-import classes from './Cart.module.css';
+import { Button } from "@mui/material";
+import React, { useContext } from "react";
+import { CartContext } from "../context/CartContext";
+import classes from "./Cart.module.css";
 
 type CartActionsProps = {
   onOrder: (arg: boolean) => void;
 };
 
 const CartActions: React.FC<CartActionsProps> = ({ onOrder }) => {
-
-  const {clearCart} = useContext(CartContext);
+  const { clearCart } = useContext(CartContext);
 
   const clickHandler = () => {
     onOrder(true);
@@ -18,10 +17,9 @@ const CartActions: React.FC<CartActionsProps> = ({ onOrder }) => {
 
   return (
     <div className={classes.actions}>
-      <Button onClick={clickHandler}>Order</Button>
+      <Button variant="contained" onClick={clickHandler}>Order</Button>
     </div>
-
   );
-}
+};
 
 export default CartActions;

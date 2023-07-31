@@ -1,6 +1,6 @@
+import { Button } from "@mui/material";
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import Button from "../UI/Button/Button";
 import Card from "../UI/Card";
 import { CartContext } from "../cart/context/CartContext";
 import classes from "./GalleryItem.module.css";
@@ -33,8 +33,8 @@ const ProductListItem: React.FC<ProductListItemProps> = ({ item }) => {
         </Link>
         <p className={classes.price}>${item.price}</p>
         <div className={classes.actions}>
-          <Button onClick={addToCartBtnHandler}>+</Button>
-          <Button onClick={removeFromCartBtnHandler}>-</Button>
+          <Button variant="contained" onClick={addToCartBtnHandler}>+</Button>
+          <Button variant="contained" onClick={removeFromCartBtnHandler}>-</Button>
         </div>
       </li>
     </Card>

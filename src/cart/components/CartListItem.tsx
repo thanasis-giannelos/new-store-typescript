@@ -1,5 +1,5 @@
+import { Button } from "@mui/material";
 import { useContext } from "react";
-import Button from "../../UI/Button/Button";
 import Product from "../../products/product";
 import { CartContext } from "../context/CartContext";
 import classes from "./CartItem.module.css";
@@ -32,8 +32,8 @@ const CartItem: React.FC<CartItemsProps> = ({ item }) => {
       </div>
       <div className={classes.actions}>
         <span className={classes.amount}>x{getGroupById()[item.id].length}</span>
-        <Button onClick={addToCartBtnHandler}>+</Button>
-        <Button onClick={removeFromCartBtnHandler}>-</Button>
+        <Button variant="contained" onClick={addToCartBtnHandler}>+</Button>
+        <Button variant="contained" onClick={removeFromCartBtnHandler}>-</Button>
       </div>
     </li>
   );
