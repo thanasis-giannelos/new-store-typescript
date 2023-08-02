@@ -1,4 +1,4 @@
-import { Container, Tab, Tabs } from "@mui/material";
+import { Box, Container, Tab, Tabs } from "@mui/material";
 
 interface ProductCategoriesProps {
   categories: string[];
@@ -10,16 +10,18 @@ const ProductCategories: React.FC<ProductCategoriesProps> = ({
   selectCategory,
 }) => {
   return (
-    <Container sx={{ borderBottom: 1, borderColor: "divider" }}>
+    <Box sx={{ width: '100%' }}>
       <Tabs
-        onChange={() => selectCategory("all_categories")}
-        aria-label="basic tabs example"
+        value={null}
+        onChange={() => selectCategory(`${value}`)}
+        textColor="secondary"
+        indicatorColor="secondary"
       >
         {categories.map((category) => (
-          <Tab label={category} />
+          <Tab value={category} label={category} />
         ))}
       </Tabs>
-    </Container>
+    </Box>
   );
 
   // return (
