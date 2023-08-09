@@ -10,7 +10,7 @@ const ProductCategories: React.FC<ProductCategoriesProps> = ({
   selectCategory,
 }) => {
   return (
-    <Container maxWidth="sm" sx={{mt: '10px'}}>
+    <Container maxWidth="sm" sx={{marginY: '20px'}}>
       <Stack direction="row" sx={{justifyContent: 'space-between'}}>
         {categories.map((category) => (
           <Button onClick={() => selectCategory(category)}>{category}</Button>
