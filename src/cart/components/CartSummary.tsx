@@ -1,4 +1,4 @@
-import classes from './Cart.module.css';
+import { Typography } from '@mui/material';
 
 type CartSummaryProps = {
   totalPrice: number
@@ -6,11 +6,9 @@ type CartSummaryProps = {
 
 const CartSummary: React.FC<CartSummaryProps> = ({ totalPrice }) => {
   return (
-    <div className={classes.total}>
-      <span>Total: </span>
-      <span>${totalPrice}</span>
-    </div>
-
+    <Typography component="div" variant='h6'>
+      Total: ${totalPrice}
+    </Typography>
   );
 }
 
