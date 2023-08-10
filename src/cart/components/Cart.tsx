@@ -20,12 +20,15 @@ const Cart: React.FC = () => {
       {!orderSent && getTotalAmount() !== 0 && (
         <>
           <Container
-            maxWidth="sm"
             sx={{
+              width: "40%",
               display: "flex",
-              justifyContent: "space-around",
+              justifyContent: "space-between",
+              alignItems: "center",
               marginY: 5,
-              backgroundColor: "inherit",
+              border: "5px #1976d2 solid",
+              paddingY: "12px",
+              borderRadius: "4px"
             }}
           >
             <CartSummary totalPrice={getTotalCost()} />
