@@ -1,26 +1,22 @@
-import classes from "../Layout/Header.module.css";
+import { Button, Container, Stack } from "@mui/material";
 
 interface ProductCategoriesProps {
   categories: string[];
   selectCategory: (category: string) => void;
 }
 
-const ProductCategories: React.FC<ProductCategoriesProps> = ({categories, selectCategory}) => {
+const ProductCategories: React.FC<ProductCategoriesProps> = ({
+  categories,
+  selectCategory,
+}) => {
   return (
-    <ul className={classes.categories}>
-    <li>
-      <a href="#" onClick={() => selectCategory("all_categories")}>
-        all
-      </a>
-    </li>
-    {categories.map((category) => (
-      <li key={category}>
-        <a href="#" onClick={() => selectCategory(`${category}`)}>
-          {category}
-        </a>
-      </li>
-    ))}
-  </ul>
+    <Container maxWidth="sm" sx={{marginY: '20px'}}>
+      <Stack direction="row" sx={{justifyContent: 'space-between'}}>
+        {categories.map((category) => (
+          <Button onClick={() => selectCategory(category)}>{category}</Button>
+        ))}
+      </Stack>
+    </Container>
   );
 };
 

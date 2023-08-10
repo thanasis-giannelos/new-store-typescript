@@ -1,26 +1,39 @@
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import { AppBar, IconButton, Toolbar, Typography } from "@mui/material";
 import React, { useContext } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { CartContext } from "../cart/context/CartContext";
-import classes from "./Header.module.css";
 
 const Header: React.FC = () => {
   const { getTotalAmount } = useContext(CartContext);
+  const numberOfProducts = getTotalAmount();
 
   return (
-    <header className={classes.header}>
-      <nav>
-        <h1>
-          <Link to="/">ReactStore</Link>
-        </h1>
-        <ul>
-          <li>
-            <NavLink to="/cart">
-              Cart {getTotalAmount() > 0 && getTotalAmount()}
-            </NavLink>
-          </li>
-        </ul>
-      </nav>
-    </header>
+    <AppBar position="sticky" sx={{top: 0, zIndex: 100}}>
+      <Toolbar sx={{ justifyContent: "space-between" }}>
+        <Typography
+          variant="h5"
+          component={Link}
+          to="/"
+          sx={{ textDecoration: "none", color: "inherit" }}
+        >
+          ReactStore
+        </Typography>
+        <IconButton
+          size="large"
+          edge="start"
+          color="inherit"
+          component={Link}
+          to="/cart"
+          sx={{ mr: 2 }}
+        >
+          <ShoppingCartIcon />
+          {numberOfProducts > 0 && (
+            <span style={{ fontSize: 13 }}>{numberOfProducts}</span>
+          )}
+        </IconButton>
+      </Toolbar>
+    </AppBar>
   );
 };
 

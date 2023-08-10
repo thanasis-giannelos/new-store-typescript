@@ -1,8 +1,15 @@
-import { Button } from "@mui/material";
+import {
+  Box,
+  Button,
+  Card,
+  CardActions,
+  CardContent,
+  CardMedia,
+  Typography,
+} from "@mui/material";
 import { useContext } from "react";
 import Product from "../../products/product";
 import { CartContext } from "../context/CartContext";
-import classes from "./CartItem.module.css";
 
 type CartItemsProps = {
   item: Product;
@@ -20,21 +27,49 @@ const CartItem: React.FC<CartItemsProps> = ({ item }) => {
   }
 
   return (
-    <li className={classes.cartItem}>
-      {/* <div className={classes.imageContainer}>
-        <img src={img} alt={'cart_item'} className={classes.image} />
-      </div> */}
-      <div>
-        <h3>{item.title}</h3>
-        <div className={classes.summary}>
-          <span className={classes.price}>${item.price}</span>
-        </div>
-      </div>
-      <div className={classes.actions}>
-        <span className={classes.amount}>x{getGroupById()[item.id].length}</span>
-        <Button variant="contained" onClick={addToCartBtnHandler}>+</Button>
-        <Button variant="contained" onClick={removeFromCartBtnHandler}>-</Button>
-      </div>
+    <li style={{ listStyle: "none", width: "100%" }}>
+      <Card sx={{ display: "flex", alignItems: "center"}}>
+        <Box sx={{width: "60%"}}>
+          <CardMedia
+            component="img"
+            height="150"
+            image={item.image}
+            sx={{ objectFit: "contain" }}
+          />
+        </Box>
+        <CardContent>
+          <Typography gutterBottom variant="h6" component="div" noWrap>
+            {item.title}
+          </Typography>
+          <Typography variant="body1" color="black">
+            $ {item.price}
+          </Typography>
+          <Typography variant="body1" color="text.secondary">
+            {item.description}
+          </Typography>
+        </CardContent>
+        <CardActions sx={{ justifyContent: "space-around" }}>
+          <Button
+            variant="contained"
+            size="small"
+            color="primary"
+            onClick={addToCartBtnHandler}
+          >
+            +
+          </Button>
+          <Typography component="div" variant="subtitle1">
+            x{getGroupById()[item.id].length}
+          </Typography>
+          <Button
+            variant="contained"
+            size="small"
+            color="primary"
+            onClick={removeFromCartBtnHandler}
+          >
+            -
+          </Button>
+        </CardActions>
+      </Card>
     </li>
   );
 };
