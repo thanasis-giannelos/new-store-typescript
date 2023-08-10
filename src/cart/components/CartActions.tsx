@@ -15,6 +15,7 @@ const CartActions: React.FC<CartActionsProps> = ({ onOrder }) => {
   };
 
   return <Button variant="contained" size="small" onClick={clickHandler}>Checkout</Button>;
+
 };
 
 export default CartActions;

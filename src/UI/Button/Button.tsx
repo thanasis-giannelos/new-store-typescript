@@ -1,5 +1,5 @@
 import React from 'react';
-import classes from './Button.module.css';
+// import classes from './Button.module.css';
 
 type ButtonProps = {
   onClick: () => void,
@@ -10,7 +10,7 @@ const Button: React.FC<ButtonProps> = ({onClick, children}) => {
 
   return (
     <button 
-      className={classes.button}
+      // className={classes.button}
       onClick={onClick}
     >
       {children}
