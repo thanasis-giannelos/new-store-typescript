@@ -11,6 +11,7 @@ import {
 import React, { useContext } from "react";
 import { CartContext } from "../cart/context/CartContext";
 import Product from "./product";
+import { Link } from "react-router-dom";
 
 type ProductListItemProps = {
   item: Product;
@@ -30,7 +31,7 @@ const ProductListItem: React.FC<ProductListItemProps> = ({ item }) => {
   return (
     <li style={{ listStyle: "none", width: 200, flex: "1 1 0" }}>
       <Card>
-        <CardActionArea>
+        <CardActionArea component={Link} to={'/' + item.id}>
           <CardMedia
             component="img"
             height="150"
