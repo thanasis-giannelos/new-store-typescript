@@ -4,7 +4,7 @@ import ProductsList from "./ProductsList";
 import useProducts from "./useProducts";
 
 const Products: React.FC = () => {
-  const { products, selectCategory } = useProducts(PRODUCTS);
+  const { products, selectCategory } = useProducts();
   return (
     <>
       <ProductCategories categories={CATEGORIES} selectCategory={selectCategory}/>
