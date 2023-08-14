@@ -12,8 +12,8 @@ const CartList: React.FC<CartListProps> = ({ cart }) => {
     <section>
       <ul>
         <Container maxWidth="md" sx={{display: "flex", flexDirection: "column", gap: "1rem"}}>
-          {cart.map((item) => (
-            <CartListItem key={item.id} item={item} />
+          {cart.map((item, index) => (
+            <CartListItem key={index} item={item} />
           ))}
         </Container>
       </ul>
