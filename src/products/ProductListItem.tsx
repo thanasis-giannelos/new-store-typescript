@@ -6,7 +6,7 @@ import {
   CardActions,
   CardContent,
   CardMedia,
-  Typography
+  Typography,
 } from "@mui/material";
 import React, { useContext } from "react";
 import { CartContext } from "../cart/context/CartContext";
@@ -18,6 +18,8 @@ type ProductListItemProps = {
 };
 
 const ProductListItem: React.FC<ProductListItemProps> = ({ item }) => {
+  const [productId] = Object.keys(item);
+  const [productProps] = Object.values(item);
   const { addToCart, removeFromCart } = useContext(CartContext);
 
   function addToCartBtnHandler() {
@@ -31,52 +33,45 @@ const ProductListItem: React.FC<ProductListItemProps> = ({ item }) => {
   return (
     <li style={{ listStyle: "none", width: 200, flex: "1 1 0" }}>
       <Card>
-        <CardActionArea component={Link} to={'/' + item.id}>
+        <CardActionArea component={Link} to={"/" + productId}>
           <CardMedia
             component="img"
             height="150"
-            image={item.image}
+            image={productProps.image}
             sx={{ objectFit: "contain" }}
           />
           <CardContent>
             <Typography gutterBottom variant="h6" component="div" noWrap>
-              {item.title}
+              {productProps.title}
             </Typography>
             <Typography variant="subtitle1" color="text.secondary">
-              $ {item.price}
+              $ {productProps.price}
             </Typography>
             <Typography variant="subtitle2" color="text.secondary">
-              {/* <IconButton
-                edge="start"
-                color="inherit"
-                sx={{ fontSize: 12}}
-              >
-              </IconButton> */}
-
               <span>
-                <StarIcon sx={{ height: 0.8 }} /> {item.rating.rate}/5 (
-                {item.rating.count})
+                <StarIcon sx={{ height: 0.8 }} /> {productProps.rating.rate}/5 (
+                {productProps.rating.count})
               </span>
             </Typography>
           </CardContent>
         </CardActionArea>
-        <CardActions sx={{justifyContent: "space-around"}}>
-            <Button
-              variant="contained"
-              size="small"
-              color="primary"
-              onClick={addToCartBtnHandler}
-            >
-              +
-            </Button>
-            <Button
-              variant="contained"
-              size="small"
-              color="primary"
-              onClick={removeFromCartBtnHandler}
-            >
-              -
-            </Button>
+        <CardActions sx={{ justifyContent: "space-around" }}>
+          <Button
+            variant="contained"
+            size="small"
+            color="primary"
+            onClick={addToCartBtnHandler}
+          >
+            +
+          </Button>
+          <Button
+            variant="contained"
+            size="small"
+            color="primary"
+            onClick={removeFromCartBtnHandler}
+          >
+            -
+          </Button>
         </CardActions>
       </Card>
     </li>

@@ -45,8 +45,9 @@ export const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
   function getGroupById() {
     return cartItems.reduce(
       (group: { [key: string]: Product[] }, product: Product) => {
-        group[product.id] = group[product.id] ?? [];
-        group[product.id].push(product);
+        const [productId] = Object.keys(product);
+        group[productId] = group[productId] ?? [];
+        group[productId].push(product);
         return group;
       },
       {}
@@ -55,7 +56,10 @@ export const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
 
   function getTotalCost() {
     return cartItems.reduce(
-      (totalCost: number, product: Product) => (totalCost += product.price),
+      (totalCost: number, product: Product) => {
+        const [productProps] = Object.values(product);
+        return totalCost += productProps.price;
+      },
       0
     );
   }

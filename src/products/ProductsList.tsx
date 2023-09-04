@@ -8,11 +8,9 @@ type ProductsListProps = {
 const ProductsList: React.FC<ProductsListProps> = ({ products }) => {
   return (
     <section>
-      <ul style={{ display: "flex", flexWrap: "wrap", gap: "1rem" }}>
-        {products.map((prod) => {
-          const [id] = Object.keys(prod);
-          const [item] = Object.values(prod);
-          return <ProductListItem key={id} item={item} />;
+      <ul style={{ display: "flex", flexWrap: "wrap", gap: "1rem", marginTop: "20px" }}>
+        {products.map((product, index) => {
+          return <ProductListItem key={index} item={product} />;
         })}
       </ul>
     </section>

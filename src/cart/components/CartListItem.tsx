@@ -16,6 +16,8 @@ type CartItemsProps = {
 };
 
 const CartItem: React.FC<CartItemsProps> = ({ item }) => {
+  const [productId] = Object.keys(item);
+  const [productProps] = Object.values(item);
   const { getGroupById, addToCart, removeFromCart } = useContext(CartContext);
 
   function addToCartBtnHandler() {
@@ -28,27 +30,24 @@ const CartItem: React.FC<CartItemsProps> = ({ item }) => {
 
   return (
     <li style={{ listStyle: "none", width: "100%" }}>
-      <Card sx={{ display: "flex", alignItems: "center"}}>
-        <Box sx={{width: "60%"}}>
-          <CardMedia
-            component="img"
-            height="150"
-            image={item.image}
-            sx={{ objectFit: "contain" }}
-          />
-        </Box>
-        <CardContent>
-          <Typography gutterBottom variant="h6" component="div" noWrap>
-            {item.title}
+      <Card sx={{ display: "flex",  }}>
+        <CardMedia
+          component="img"
+          height="140"
+          image={productProps.image}
+          sx={{ objectFit: "contain", width: '25%' }}
+        />
+
+        <CardContent sx={{width: '50%'}}>
+          <Typography gutterBottom variant="h6" component="div">
+            {productProps.title}
           </Typography>
           <Typography variant="body1" color="black">
-            $ {item.price}
-          </Typography>
-          <Typography variant="body1" color="text.secondary">
-            {item.description}
+            $ {productProps.price}
           </Typography>
         </CardContent>
-        <CardActions sx={{ justifyContent: "space-around" }}>
+
+        <CardActions sx={{ justifyContent: "space-around", width: '25%' }}>
           <Button
             variant="contained"
             size="small"
@@ -58,7 +57,7 @@ const CartItem: React.FC<CartItemsProps> = ({ item }) => {
             +
           </Button>
           <Typography component="div" variant="subtitle1">
-            x{getGroupById()[item.id].length}
+            x{getGroupById()[productId].length}
           </Typography>
           <Button
             variant="contained"
