@@ -1,13 +1,13 @@
-import { CATEGORIES, PRODUCTS } from "../data";
 import ProductCategories from "./ProductCategories";
 import ProductsList from "./ProductsList";
 import useProducts from "./useProducts";
 
 const Products: React.FC = () => {
-  const { products, selectCategory } = useProducts();
+  // const { products, selectCategory } = useProducts();
+  const { products } = useProducts();
   return (
     <>
-      <ProductCategories categories={CATEGORIES} selectCategory={selectCategory}/>
+      {/* <ProductCategories selectCategory={selectCategory}/> */}
       <ProductsList products={products} />;
     </>
   );
