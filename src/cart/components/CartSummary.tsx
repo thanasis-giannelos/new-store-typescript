@@ -7,7 +7,7 @@ type CartSummaryProps = {
 const CartSummary: React.FC<CartSummaryProps> = ({ totalPrice }) => {
   return (
     <Typography component="div" variant='body1'>
-      Total: ${totalPrice}
+      Total: $ {totalPrice.toFixed(2)}
     </Typography>
   );
 }
