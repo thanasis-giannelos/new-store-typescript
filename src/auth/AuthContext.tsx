@@ -12,7 +12,9 @@ type AuthContextType = {
   logOutUser: () => void;
 };
 
-export const AuthContext = createContext<AuthContextType | null>(null);
+export const AuthContext = createContext<AuthContextType>(
+  {} as AuthContextType
+);
 
 export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   const { signedInUser, registerUser, logInUser, logOutUser } = useAuth();
