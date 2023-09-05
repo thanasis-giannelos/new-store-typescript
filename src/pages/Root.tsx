@@ -1,14 +1,17 @@
 import { Outlet } from "react-router";
 import Header from "../Layout/Header";
 import { CartProvider } from "../cart/context/CartContext";
+import { AuthProvider } from "../auth/AuthContext";
 
 function Root() {
   return (
-    <CartProvider>
-      <Header />
-      <Outlet/>
-    </CartProvider>
-  )
+    <AuthProvider>
+      <CartProvider>
+        <Header />
+        <Outlet />
+      </CartProvider>
+    </AuthProvider>
+  );
 }
 
 export default Root;
