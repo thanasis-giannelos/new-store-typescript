@@ -1,5 +1,5 @@
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import PersonIcon from "@mui/icons-material/Person";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import {
   AppBar,
   Badge,
@@ -10,10 +10,12 @@ import {
 } from "@mui/material";
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../auth/AuthContext";
 import { CartContext } from "../cart/context/CartContext";
 
 const Header: React.FC = () => {
   const { getTotalAmount } = useContext(CartContext);
+  const { signedInUser } = useContext(AuthContext);
   const numberOfProducts = getTotalAmount();
 
   return (
@@ -28,6 +30,14 @@ const Header: React.FC = () => {
           ReactStore
         </Typography>
         <Box>
+          {signedInUser && (
+            <Typography
+              sx={{ display: "inline-block", marginRight: "16px" }}
+              variant="body1"
+            >
+              {signedInUser.uid}
+            </Typography>
+          )}
           <IconButton
             size="large"
             edge="start"
