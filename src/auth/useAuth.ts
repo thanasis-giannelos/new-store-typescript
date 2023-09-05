@@ -3,7 +3,7 @@ import {
   createUserWithEmailAndPassword,
   onAuthStateChanged,
   signInWithEmailAndPassword,
-  signOut,
+  signOut
 } from "firebase/auth";
 import { useState } from "react";
 import { auth } from "../firebase-config";
@@ -47,11 +47,7 @@ export const useAuth = () => {
 
   function logOutUser() {
     signOut(auth)
-    // .then(() => {
-    //   // Sign-out successful.
-    // })
     .catch((error) => {
-      // An error happened.
       console.log(error);
     });
 
