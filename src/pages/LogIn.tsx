@@ -1,17 +1,11 @@
 import { Button, TextField } from "@mui/material";
-import {
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-  signOut,
-} from "firebase/auth";
 import { useContext, useState } from "react";
-import { auth } from "../firebase-config";
 import { AuthContext } from "../auth/AuthContext";
 
 const LogIn: React.FC = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const {signedInUser, } = useContext(AuthContext);
+  const { signedInUser, registerUser, logInUser, logOutUser } = useContext(AuthContext);
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -19,10 +13,11 @@ const LogIn: React.FC = () => {
   }
 
   function handleSignOut() {
+    logOutUser()
   }
 
   function handleLogIn() {
-    logInUser(email, password)
+    logInUser(email, password);
   }
 
   return (
@@ -58,7 +53,7 @@ const LogIn: React.FC = () => {
         Sign Out
       </Button>
       <h2>
-        {signedInUserId !== "" ? signedInUserId : "You are not signed in"}
+        {signedInUser ? signedInUser.uid : "no user connected"}
       </h2>
     </form>
   );
