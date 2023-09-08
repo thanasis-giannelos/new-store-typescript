@@ -1,15 +1,17 @@
-import { useState, useEffect } from "react";
-import Product from "./product";
-import { ref, child, get } from "firebase/database";
+import { child, get, ref } from "firebase/database";
+import { useEffect, useState } from "react";
 import { database } from "../firebase-config";
+import Product from "./product";
 
 const useProducts = () => {
   const [products, setProducts] = useState<Product[]>([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const dbRef = ref(database);
     get(child(dbRef, `products`))
       .then((snapshot) => {
+        setLoading(false)
         if (snapshot.exists()) {
           setProducts(snapshot.val());
         } else {
@@ -19,9 +21,13 @@ const useProducts = () => {
       .catch((error) => {
         console.error(error);
       });
+      return () => {
+        console.log('clean')
+      };
   }, []);
 
   return {
+    loading,
     products,
     // selectCategory: (category: string) => {
     //   const fromMap = products.map((prod) => {
