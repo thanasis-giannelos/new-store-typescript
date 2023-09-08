@@ -1,6 +1,6 @@
 import { Button } from "@mui/material";
 import React, { useContext } from "react";
-import { CartContext } from "../context/CartContext";
+import { CartContext } from "./CartContext";
 
 type CartActionsProps = {
   onOrder: (arg: boolean) => void;

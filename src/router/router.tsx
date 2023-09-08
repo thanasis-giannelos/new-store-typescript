@@ -3,7 +3,7 @@ import {
   createBrowserRouter,
   createRoutesFromElements,
 } from "react-router-dom";
-import Cart from "../cart/components/Cart";
+import Cart from "../cart/Cart";
 import Root from "../pages/Root";
 import ProductDetails from "../products/ProductDetails";
 import Products from "../products/Products";

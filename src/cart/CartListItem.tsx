@@ -8,8 +8,8 @@ import {
   Typography,
 } from "@mui/material";
 import { useContext } from "react";
-import Product from "../../products/product";
-import { CartContext } from "../context/CartContext";
+import Product from "../products/product";
+import { CartContext } from "./CartContext";
 
 type CartItemsProps = {
   item: Product;

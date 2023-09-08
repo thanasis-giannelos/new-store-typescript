@@ -1,7 +1,6 @@
 import { Container, Typography } from "@mui/material";
 import React, { useContext, useState } from "react";
-import { CartContext } from "../context/CartContext";
-import classes from "./Cart.module.css";
+import { CartContext } from "./CartContext";
 import CartActions from "./CartActions";
 import CartList from "./CartList";
 import CartSummary from "./CartSummary";
@@ -16,7 +15,7 @@ const Cart: React.FC = () => {
   const cartItems = Object.keys(obj).map((id) => obj[id][0]);
 
   return (
-    <div className={classes.cart}>
+    <div>
       {!orderSent && getTotalAmount() !== 0 && (
         <>
           <Container

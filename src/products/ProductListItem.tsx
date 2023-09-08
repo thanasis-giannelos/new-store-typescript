@@ -9,7 +9,7 @@ import {
   Typography,
 } from "@mui/material";
 import React, { useContext } from "react";
-import { CartContext } from "../cart/context/CartContext";
+import { CartContext } from "../cart/CartContext";
 import Product from "./product";
 import { Link } from "react-router-dom";
 

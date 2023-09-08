@@ -1,6 +1,6 @@
 import { Container } from "@mui/material";
 import React from "react";
-import Product from "../../products/product";
+import Product from "../products/product";
 import CartListItem from "./CartListItem";
 
 type CartListProps = {

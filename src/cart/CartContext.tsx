@@ -1,6 +1,6 @@
 import React, { createContext } from "react";
-import Product from "../../products/product";
-import { useCart } from "../useCart";
+import Product from "../products/product";
+import { useCart } from "./useCart";
 
 export type CartContextType = {
   items: Product[];

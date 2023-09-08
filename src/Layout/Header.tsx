@@ -11,7 +11,7 @@ import {
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../auth/AuthContext";
-import { CartContext } from "../cart/context/CartContext";
+import { CartContext } from "../cart/CartContext";
 
 const Header: React.FC = () => {
   const { getTotalAmount } = useContext(CartContext);
