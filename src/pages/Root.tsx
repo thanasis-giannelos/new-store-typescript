@@ -5,13 +5,11 @@ import { AuthProvider } from "../auth/AuthContext";
 
 function Root() {
   return (
-    <AuthProvider>
-      <CartProvider>
-        <Header />
-        <Outlet />
-      </CartProvider>
-    </AuthProvider>
-  );
+    <>
+      <Header />
+      <Outlet />
+    </>
+  )
 }
 
 export default Root;

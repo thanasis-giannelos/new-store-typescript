@@ -19,8 +19,8 @@ const Header: React.FC = () => {
   const numberOfProducts = getTotalAmount();
 
   return (
-    <AppBar position="sticky" sx={{ top: 0, zIndex: 100 }}>
-      <Toolbar sx={{ justifyContent: "space-between" }}>
+    <AppBar position="sticky" sx={{ backgroundColor: 'white', color: 'black', boxShadow: 'none', top: 0, zIndex: 100 }}>
+      <Toolbar sx={{ width: '80%', justifyContent: "space-between", margin: '0 auto' }}>
         <Typography
           variant="h5"
           component={Link}
