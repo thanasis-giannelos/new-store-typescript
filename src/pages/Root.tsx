@@ -1,7 +1,5 @@
 import { Outlet } from "react-router";
-import Header from "../Layout/Header";
-import { CartProvider } from "../cart/CartContext";
-import { AuthProvider } from "../auth/AuthContext";
+import Header from "../Layout/header/Header";
 
 function Root() {
   return (
