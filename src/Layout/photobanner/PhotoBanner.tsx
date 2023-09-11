@@ -1,12 +1,12 @@
-import React from "react";
-import img from "./yubjh.jpg";
 import { Button } from "@mui/material";
+import img from "./yubjh.jpg";
 
 const PhotoBanner = () => {
   return (
     <div
       style={{
         width: "80%",
+        maxWidth: '1370px',
         height: "111px",
         margin: "3rem auto",
         backgroundColor: "red",
