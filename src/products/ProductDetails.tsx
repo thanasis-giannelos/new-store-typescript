@@ -1,6 +1,5 @@
 import { Button, Container } from "@mui/material";
 import { useParams } from "react-router";
-import Product from "./product";
 
 const ProductDetails: React.FC = () => {
   const { id } = useParams();
@@ -9,28 +8,32 @@ const ProductDetails: React.FC = () => {
 
   // }, []);
 
-  const product_: Product = {
-    hhe34fg4: {
-      title: "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
-      price: 109.95,
-      description:
-        "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday",
-      category: "men's clothing",
-      image: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
-      rating: {
-        rate: 3.9,
-        count: 120,
-      },
-    },
+  const product = {
+    "id": 56,
+    "title": "Sneakers Joggers Shoes",
+    "description": "Gender: Men , Colors: Same as DisplayedCondition: 100% Brand New",
+    "price": 40,
+    "discountPercentage": 12.57,
+    "rating": 4.38,
+    "stock": 6,
+    "brand": "Sneakers",
+    "category": "mens-shoes",
+    "thumbnail": "https://i.dummyjson.com/data/products/56/thumbnail.jpg",
+    "images": [
+      "https://i.dummyjson.com/data/products/56/1.jpg",
+      "https://i.dummyjson.com/data/products/56/2.jpg",
+      "https://i.dummyjson.com/data/products/56/3.jpg",
+      "https://i.dummyjson.com/data/products/56/4.jpg",
+      "https://i.dummyjson.com/data/products/56/5.jpg",
+      "https://i.dummyjson.com/data/products/56/thumbnail.jpg"
+    ]
   };
-
-  const product = product_["hhe34fg4"];
 
   return (
     <Container sx={{width: '70%', display: 'flex', gap: '1rem', marginTop: "5rem"}}>
       <div>
         <img
-          src={product.image}
+          src={product.thumbnail}
           height="300px"
           style={{ objectFit: "contain" }}
         />
