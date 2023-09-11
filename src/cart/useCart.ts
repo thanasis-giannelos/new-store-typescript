@@ -5,6 +5,11 @@ export const useCart = () => {
   const [cartItems, setCartItems] = useState<Product[]>([]);
 
   function addToCart(product: Product) {
+    if (!cartItems.includes(product))
+      setCartItems((prevCartItems) => [...prevCartItems, product]);
+  }
+
+  function increase(product: Product) {
     setCartItems((prevCartItems) => [...prevCartItems, product]);
   }
 
@@ -55,6 +60,7 @@ export const useCart = () => {
   return {
     items: cartItems,
     addToCart,
+    increase,
     getGroupById,
     removeFromCart,
     clearCart,

@@ -5,6 +5,7 @@ import { useCart } from "./useCart";
 export type CartContextType = {
   items: Product[];
   addToCart: (product: Product) => void;
+  increase: (product: Product) => void;
   removeFromCart: (product: Product) => void;
   clearCart: () => void;
   getGroupById: () => { [key: string]: Product[] };
@@ -24,6 +25,7 @@ export const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
   const {
     items,
     addToCart,
+    increase,
     getGroupById,
     removeFromCart,
     clearCart,
@@ -36,6 +38,7 @@ export const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
       value={{
         items,
         addToCart,
+        increase,
         getGroupById,
         removeFromCart,
         clearCart,

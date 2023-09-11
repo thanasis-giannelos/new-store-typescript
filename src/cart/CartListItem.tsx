@@ -18,10 +18,10 @@ const CartItem: React.FC<CartItemsProps> = ({ item }) => {
   // const [productId] = Object.keys(item);
   // const [productProps] = Object.values(item);
   const {id, title, thumbnail, price} = item;
-  const { getGroupById, addToCart, removeFromCart } = useContext(CartContext);
+  const { getGroupById, increase, removeFromCart } = useContext(CartContext);
 
   function addToCartBtnHandler() {
-    addToCart(item);
+    increase(item);
   }
 
   function removeFromCartBtnHandler() {
