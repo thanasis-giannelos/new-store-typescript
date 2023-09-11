@@ -1,12 +1,13 @@
-import StarIcon from "@mui/icons-material/Star";
+import AddShoppingCartOutlinedIcon from '@mui/icons-material/AddShoppingCartOutlined';
+import StarBorderOutlinedIcon from '@mui/icons-material/StarBorderOutlined';
 import {
-  Button,
   Card,
   CardActionArea,
   CardActions,
   CardContent,
   CardMedia,
-  Typography,
+  IconButton,
+  Typography
 } from "@mui/material";
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
@@ -28,9 +29,9 @@ const ProductListItem: React.FC<ProductListItemProps> = ({ item }) => {
     addToCart(item);
   }
 
-  function removeFromCartBtnHandler() {
-    removeFromCart(item);
-  }
+  // function removeFromCartBtnHandler() {
+  //   removeFromCart(item);
+  // }
 
   return (
     <li style={{ listStyle: "none", width: 200, flex: "1 1 0" }}>
@@ -38,7 +39,7 @@ const ProductListItem: React.FC<ProductListItemProps> = ({ item }) => {
         <CardActionArea component={Link} to={"/" + id}>
           <CardMedia
             component="img"
-            height="150"
+            height="250"
             image={thumbnail}
             sx={{ objectFit: "contain" }}
           />
@@ -51,28 +52,20 @@ const ProductListItem: React.FC<ProductListItemProps> = ({ item }) => {
             </Typography>
             <Typography variant="subtitle2" color="text.secondary">
               <span>
-                <StarIcon sx={{ height: 0.8 }} /> {rating}
+                <StarBorderOutlinedIcon sx={{ height: 0.8 }} /> {rating}
               </span>
             </Typography>
           </CardContent>
         </CardActionArea>
         <CardActions sx={{ justifyContent: "space-around" }}>
-          <Button
-            variant="contained"
-            size="small"
-            color="primary"
+          <IconButton
+            size="medium"
+            edge="start"
+            color="inherit"
             onClick={addToCartBtnHandler}
           >
-            +
-          </Button>
-          <Button
-            variant="contained"
-            size="small"
-            color="primary"
-            onClick={removeFromCartBtnHandler}
-          >
-            -
-          </Button>
+            <AddShoppingCartOutlinedIcon/>
+          </IconButton>
         </CardActions>
       </Card>
     </li>
