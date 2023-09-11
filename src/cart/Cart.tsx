@@ -1,18 +1,18 @@
 import { Container, Typography } from "@mui/material";
 import React, { useContext, useState } from "react";
-import { CartContext } from "./CartContext";
 import CartActions from "./CartActions";
+import { CartContext } from "./CartContext";
 import CartList from "./CartList";
 import CartSummary from "./CartSummary";
 
 const Cart: React.FC = () => {
   const [orderSent, setOrderSent] = useState(false);
 
-  const { getGroupById, getTotalAmount, getTotalCost } =
-    useContext(CartContext);
+  const { getGroupById, getTotalAmount, getTotalCost } = useContext(CartContext);
 
   const obj = getGroupById();
-  const cartItems = Object.keys(obj).map((id) => obj[id][0]);
+  // const cartItems = Object.keys(obj).map((id) => obj[id][0]);
+  const cartItems = Object.values(obj).map((arr) => arr[0]);
 
   return (
     <div>

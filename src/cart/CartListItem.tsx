@@ -1,11 +1,10 @@
 import {
-  Box,
   Button,
   Card,
   CardActions,
   CardContent,
   CardMedia,
-  Typography,
+  Typography
 } from "@mui/material";
 import { useContext } from "react";
 import Product from "../products/product";
@@ -16,8 +15,9 @@ type CartItemsProps = {
 };
 
 const CartItem: React.FC<CartItemsProps> = ({ item }) => {
-  const [productId] = Object.keys(item);
-  const [productProps] = Object.values(item);
+  // const [productId] = Object.keys(item);
+  // const [productProps] = Object.values(item);
+  const {id, title, thumbnail, price} = item;
   const { getGroupById, addToCart, removeFromCart } = useContext(CartContext);
 
   function addToCartBtnHandler() {
@@ -34,16 +34,16 @@ const CartItem: React.FC<CartItemsProps> = ({ item }) => {
         <CardMedia
           component="img"
           height="140"
-          image={productProps.image}
+          image={thumbnail}
           sx={{ objectFit: "contain", width: '25%' }}
         />
 
         <CardContent sx={{width: '50%'}}>
           <Typography gutterBottom variant="h6" component="div">
-            {productProps.title}
+            {title}
           </Typography>
           <Typography variant="body1" color="black">
-            $ {productProps.price}
+            $ {price}
           </Typography>
         </CardContent>
 
@@ -57,7 +57,7 @@ const CartItem: React.FC<CartItemsProps> = ({ item }) => {
             +
           </Button>
           <Typography component="div" variant="subtitle1">
-            x{getGroupById()[productId].length}
+            x{getGroupById()[id].length}
           </Typography>
           <Button
             variant="contained"

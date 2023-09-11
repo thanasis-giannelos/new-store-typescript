@@ -10,13 +10,13 @@ export const useCart = () => {
 
   function removeFromCart(product: Product) {
     if (cartItems.length > 0 && cartItems.includes(product)) {
-      const [productProps] = Object.values(product);
+      // const [productProps] = Object.values(product);
       setCartItems((prevCartItems) => {
-        const alternative = prevCartItems.map((p) => {
-          const [pProps] = Object.values(p);
-          return pProps;
-        });
-        const thatIndex = alternative.indexOf(productProps);
+        // const alternative = prevCartItems.map((p) => {
+        //   const [pProps] = Object.values(p);
+        //   return pProps;
+        // });
+        const thatIndex = prevCartItems.indexOf(product);
         return [
           ...prevCartItems.slice(0, thatIndex),
           ...prevCartItems.slice(thatIndex + 1),
@@ -31,8 +31,8 @@ export const useCart = () => {
 
   function getTotalCost() {
     return cartItems.reduce((totalCost: number, product: Product) => {
-      const [productProps] = Object.values(product);
-      return (totalCost += productProps.price);
+      // const [productProps] = Object.values(product);
+      return (totalCost += product.price);
     }, 0);
   }
 
@@ -43,9 +43,9 @@ export const useCart = () => {
   function getGroupById() {
     return cartItems.reduce(
       (group: { [key: string]: Product[] }, product: Product) => {
-        const [productId] = Object.keys(product);
-        group[productId] = group[productId] ?? [];
-        group[productId].push(product);
+        // const [productId] = Object.keys(product);
+        group[product.id] = group[product.id] ?? [];
+        group[product.id].push(product);
         return group;
       },
       {}
