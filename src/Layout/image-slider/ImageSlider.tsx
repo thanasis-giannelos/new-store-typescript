@@ -1,11 +1,14 @@
+import ArrowBackIosNewOutlinedIcon from "@mui/icons-material/ArrowBackIosNewOutlined";
+import ArrowForwardIosOutlinedIcon from "@mui/icons-material/ArrowForwardIosOutlined";
+import LensOutlinedIcon from "@mui/icons-material/LensOutlined";
+import { IconButton } from "@mui/material";
 import React, { useState } from "react";
 import img1 from "./1.jpg";
 import img2 from "./2.jpg";
-
 const ImageSlider: React.FC = () => {
   const slides = [img1, img2];
 
-  const [current, setCurrent] = useState(1);
+  const [current, setCurrent] = useState(0);
 
   function prevSlideHandler() {
     setCurrent((prevCurrent) =>
@@ -22,7 +25,7 @@ const ImageSlider: React.FC = () => {
   return (
     <div
       style={{
-        width: "100vw",
+        // width: "100vw",
         height: "718px",
         position: "relative",
         backgroundImage: `url(${slides[current]})`,
@@ -30,18 +33,25 @@ const ImageSlider: React.FC = () => {
         backgroundPosition: "center",
       }}
     >
-      <button
-        style={{ position: "absolute", top: "50%" }}
+      <IconButton
+        size="large"
+        edge="start"
+        color="inherit"
         onClick={prevSlideHandler}
+        sx={{ position: "absolute", top: "50%", left: "5%" }}
       >
-        prev
-      </button>
-      <button
-        style={{ position: "absolute", top: "50%", right: "0" }}
+        <ArrowBackIosNewOutlinedIcon />
+      </IconButton>
+
+      <IconButton
+        size="large"
+        edge="start"
+        color="inherit"
         onClick={nextSlideHandler}
+        sx={{ position: "absolute", top: "50%", right: "5%" }}
       >
-        next
-      </button>
+        <ArrowForwardIosOutlinedIcon />
+      </IconButton>
       <div
         style={{
           display: "flex",
@@ -53,9 +63,16 @@ const ImageSlider: React.FC = () => {
           transform: `translate(-50%, 0px)`,
         }}
       >
-        <button>o</button>
-        <button>o</button>
-        <button>o</button>
+        {slides.map((_, index) => (
+          <IconButton
+            size="small"
+            edge="start"
+            color={index === current ? 'error' : 'inherit'}
+            onClick={() => setCurrent(index)}
+          >
+            <LensOutlinedIcon />
+          </IconButton>
+        ))}
       </div>
     </div>
   );
