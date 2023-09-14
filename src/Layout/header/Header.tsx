@@ -6,29 +6,30 @@ import {
   Box,
   Button,
   IconButton,
+  Menu,
+  MenuItem,
   Toolbar,
-  Typography
+  Typography,
 } from "@mui/material";
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../auth/AuthContext";
 import { CartContext } from "../../cart/CartContext";
-import './Menu.css';
 
 const Header: React.FC = () => {
   const { getTotalAmount } = useContext(CartContext);
   const { signedInUser } = useContext(AuthContext);
   const numberOfProducts = getTotalAmount();
 
-  const [showMenu, setShowMenu] = React.useState(false);
-
-  const handleMenu = () => {
-    setShowMenu(!showMenu)
+  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
   };
 
-  // const handleClose = () => {
-  //   setAnchorEl(null);
-  // };
   const categories = [
     "smartphones",
     "laptops",
@@ -79,39 +80,39 @@ const Header: React.FC = () => {
           >
             ReactStore
           </Typography>
-          <div className='menu-container'>
-            <Button  className='menu-btn' onClick={handleMenu}>Categories</Button>
-            {/* <Menu
-              id="menu-appbar"
-              anchorEl={anchorEl}
-              anchorOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              open={Boolean(anchorEl)}
-              onClose={handleClose}
+
+          <div>
+            <Button
+              id="categories-button"
+              aria-controls={open ? "categories-menu" : undefined}
+              aria-haspopup="true"
+              aria-expanded={open ? "true" : "true"}
+              onClick={handleClick}
             >
-              {categories.map((cat) => (
-                <MenuItem onClick={handleClose}>{cat}</MenuItem>
-              ))}
-            </Menu>
- */}
-            <ul className={`menu-list ${!showMenu && 'not-active'}`}>
-              {categories.map((cat) => {
+              Categories
+            </Button>
+            <Menu
+              id="categories-menu"
+              anchorEl={anchorEl}
+              open={open}
+              onClose={handleClose}
+              MenuListProps={{
+                "aria-labelledby": "basic-button",
+              }}
+            >
+              {categories.map((categ) => {
                 return (
-                  <li className='menu-item'>
-                    <Link to="#" style={{ textDecoration: "none" }}>
-                      {cat}
+                  <MenuItem divider={true} onClick={handleClose}>
+                    <Link
+                      style={{ textDecoration: "none", color: "inherit" }}
+                      to="#"
+                    >
+                      {categ.toUpperCase()}
                     </Link>
-                  </li>
+                  </MenuItem>
                 );
               })}
-            </ul>
+            </Menu>
           </div>
         </Box>
         <Box>
