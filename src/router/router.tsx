@@ -2,11 +2,10 @@ import {
   createBrowserRouter,
 } from "react-router-dom";
 import Cart from "../cart/Cart";
+import Home from "../pages/Home";
+import LogIn from "../pages/LogIn";
 import Root from "../pages/Root";
 import ProductDetails from "../products/ProductDetails";
-import Products from "../products/Products";
-import LogIn from "../pages/LogIn";
-import Home from "../pages/Home";
 
 // export const router = createBrowserRouter(
 //   createRoutesFromElements(
@@ -36,6 +35,10 @@ export const router = createBrowserRouter([
       {
         path: 'cart',
         element: <Cart/>
+      },
+      {
+        path: ':id',
+        element: <ProductDetails/>
       }
     ]
   }
