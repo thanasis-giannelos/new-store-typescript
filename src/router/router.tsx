@@ -1,9 +1,9 @@
+import { Home } from "@mui/icons-material";
 import { createBrowserRouter } from "react-router-dom";
-import Cart from "../cart/Cart";
-import Home from "../pages/Home";
+import Cart from "../components/cart/Cart";
+import ProductDetails from "../components/products/ProductDetails";
+import Products from "../components/products/Products";
 import Root from "../pages/Root";
-import ProductDetails from "../products/ProductDetails";
-import Products from "../products/Products";
 
 export const router = createBrowserRouter([
   {

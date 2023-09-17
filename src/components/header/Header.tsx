@@ -1,21 +1,18 @@
-import PersonIcon from "@mui/icons-material/Person";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import {
   AppBar,
-  Badge,
+  Toolbar,
   Box,
+  Typography,
   Button,
-  IconButton,
   Menu,
   MenuItem,
-  Toolbar,
-  Typography,
+  IconButton,
+  Badge,
 } from "@mui/material";
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-// import { AuthContext } from "../../auth/AuthContext";
-import { CartContext } from "../../cart/CartContext";
 import useFetch from "../../hooks/useFetch";
+import { CartContext } from "../cart/CartContext";
 
 const Header: React.FC = () => {
   const { getTotalAmount } = useContext(CartContext);

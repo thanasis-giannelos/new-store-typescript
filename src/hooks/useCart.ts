@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Product from "../products/product";
+import Product from "../components/products/product";
 
 export const useCart = () => {
   const [cartItems, setCartItems] = useState<Product[]>([]);

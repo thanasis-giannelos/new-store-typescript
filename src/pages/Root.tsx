@@ -1,5 +1,5 @@
 import { Outlet } from "react-router";
-import Header from "../Layout/header/Header";
+import Header from "../components/header/Header";
 
 function Root() {
   return (
@@ -7,7 +7,7 @@ function Root() {
       <Header />
       <Outlet />
     </>
-  )
+  );
 }
 
 export default Root;

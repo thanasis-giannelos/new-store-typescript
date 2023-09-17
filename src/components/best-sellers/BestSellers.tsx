@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
-import ProductsList from "../../products/ProductsList";
 import useFetch from "../../hooks/useFetch";
-import Product from "../../products/product";
+import ProductsList from "../products/ProductsList";
+import Product from "../products/product";
 
 type ProductsResponse = {
   products: Product[];

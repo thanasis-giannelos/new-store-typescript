@@ -1,8 +1,8 @@
 import { Blocks } from "react-loader-spinner";
 import ProductsList from "./ProductsList";
 import { useParams } from "react-router";
-import useFetch from "../hooks/useFetch";
 import Product from "./product";
+import useFetch from "../../hooks/useFetch";
 
 type ProductsResponse = {
   products: Product[];

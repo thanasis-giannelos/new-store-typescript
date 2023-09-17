@@ -1,14 +1,14 @@
 import React from "react";
-import { BestSellers } from "../Layout/best-sellers/BestSellers";
-import ImageSlider from "../Layout/image-slider/ImageSlider";
-import PhotoBanner from "../Layout/photobanner/PhotoBanner";
+import PhotoBanner from "../components/PhotoBanner";
+import { BestSellers } from "../components/best-sellers/BestSellers";
+import ImageSlider from "../components/image-slider/ImageSlider";
 
 const Home: React.FC = () => {
   return (
     <>
-      <ImageSlider/>
-      <PhotoBanner/>
-      <BestSellers/>
+      <ImageSlider />
+      <PhotoBanner />
+      <BestSellers />
     </>
   );
 };

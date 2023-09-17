@@ -1,7 +1,7 @@
 import { RouterProvider } from "react-router";
 import { router } from "./router/router";
+import { CartProvider } from "./components/cart/CartContext";
 // import { AuthProvider } from "./auth/AuthContext";
-import { CartProvider } from "./cart/CartContext";
 
 export const App: React.FC = () => {
   return (

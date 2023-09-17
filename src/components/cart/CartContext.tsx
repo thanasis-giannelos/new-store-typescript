@@ -1,6 +1,6 @@
 import React, { createContext } from "react";
 import Product from "../products/product";
-import { useCart } from "./useCart";
+import { useCart } from "../../hooks/useCart";
 
 export type CartContextType = {
   items: Product[];
