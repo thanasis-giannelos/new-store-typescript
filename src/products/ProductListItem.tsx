@@ -30,7 +30,7 @@ const ProductListItem: React.FC<ProductListItemProps> = ({ item }) => {
   return (
     <li style={{ listStyle: "none" }}>
       <Card>
-        <CardActionArea component={Link} to={"/" + id}>
+        <CardActionArea component={Link} to={"/products/" + id}>
           <CardMedia
             component="img"
             height="250"

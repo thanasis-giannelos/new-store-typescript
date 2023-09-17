@@ -100,9 +100,9 @@ const Header: React.FC = () => {
                 "aria-labelledby": "basic-button",
               }}
             >
-              {categories.map((categ) => {
+              {categories.map((categ, index) => {
                 return (
-                  <MenuItem divider={true} onClick={handleClose}>
+                  <MenuItem key={index} divider={true} onClick={handleClose}>
                     <Link
                       style={{ textDecoration: "none", color: "inherit" }}
                       to="#"

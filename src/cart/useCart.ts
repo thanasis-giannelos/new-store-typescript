@@ -45,10 +45,17 @@ export const useCart = () => {
     return cartItems.length;
   }
 
+  function getAmountOfProduct(product: Product) {
+    let sum = 0;
+    cartItems.forEach((item) => {
+      if (item.id === product.id) sum += 1;
+    });
+    return sum;
+  }
+
   function getGroupById() {
     return cartItems.reduce(
       (group: { [key: string]: Product[] }, product: Product) => {
-        // const [productId] = Object.keys(product);
         group[product.id] = group[product.id] ?? [];
         group[product.id].push(product);
         return group;
@@ -62,6 +69,7 @@ export const useCart = () => {
     addToCart,
     increase,
     getGroupById,
+    getAmountOfProduct,
     removeFromCart,
     clearCart,
     getTotalCost,

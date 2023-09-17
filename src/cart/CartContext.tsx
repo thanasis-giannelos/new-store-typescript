@@ -8,6 +8,7 @@ export type CartContextType = {
   increase: (product: Product) => void;
   removeFromCart: (product: Product) => void;
   clearCart: () => void;
+  getAmountOfProduct: (product: Product) => number;
   getGroupById: () => { [key: string]: Product[] };
   getTotalCost: () => number;
   getTotalAmount: () => number;
@@ -30,6 +31,7 @@ export const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
     removeFromCart,
     clearCart,
     getTotalCost,
+    getAmountOfProduct,
     getTotalAmount,
   } = useCart();
 
@@ -42,6 +44,7 @@ export const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
         getGroupById,
         removeFromCart,
         clearCart,
+        getAmountOfProduct,
         getTotalCost,
         getTotalAmount,
       }}

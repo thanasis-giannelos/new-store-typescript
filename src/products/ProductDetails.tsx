@@ -1,51 +1,49 @@
 import { Button, Container } from "@mui/material";
 import { useParams } from "react-router";
+import useFetch from "../hooks/useFetch";
+import Product from "./product";
+import "./ProductDetails.css";
+import ImageGallery from "../Layout/image-slider/ImageGallery";
+import { useContext } from "react";
+import { CartContext } from "../cart/CartContext";
+import { Audio } from "react-loader-spinner";
 
 const ProductDetails: React.FC = () => {
   const { id } = useParams();
 
-  // useEffect((id: string) => {
+  const { addToCart } = useContext(CartContext);
 
-  // }, []);
-
-  const product = {
-    "id": 56,
-    "title": "Sneakers Joggers Shoes",
-    "description": "Gender: Men , Colors: Same as DisplayedCondition: 100% Brand New",
-    "price": 40,
-    "discountPercentage": 12.57,
-    "rating": 4.38,
-    "stock": 6,
-    "brand": "Sneakers",
-    "category": "mens-shoes",
-    "thumbnail": "https://i.dummyjson.com/data/products/56/thumbnail.jpg",
-    "images": [
-      "https://i.dummyjson.com/data/products/56/1.jpg",
-      "https://i.dummyjson.com/data/products/56/2.jpg",
-      "https://i.dummyjson.com/data/products/56/3.jpg",
-      "https://i.dummyjson.com/data/products/56/4.jpg",
-      "https://i.dummyjson.com/data/products/56/5.jpg",
-      "https://i.dummyjson.com/data/products/56/thumbnail.jpg"
-    ]
-  };
+  const initialState = {} as Product;
+  const { data: product, loading } = useFetch<Product>(
+    `https://dummyjson.com/products/${id}`,
+    initialState
+  );
 
   return (
-    <Container sx={{width: '70%', display: 'flex', gap: '1rem', marginTop: "5rem"}}>
-      <div>
-        <img
-          src={product.thumbnail}
-          height="300px"
-          style={{ objectFit: "contain" }}
-        />
-      </div>
-      <div style={{display: 'flex', flexDirection: 'column', gap: '2rem'}}>
-        <h3>{product.title}</h3>
-        <p>{product.description}</p>
-        <h4>$ {product.price}</h4>
-      </div>
-      <div style={{width: '300px', alignSelf: 'center'}}>
-        <Button variant="contained">Add to Cart</Button>
-      </div>
+    <Container>
+      {loading ? (
+        <Audio />
+      ) : (
+        <div className="container">
+          <ImageGallery images={product.images} />
+          <div className="product-details">
+            <div className="product-categ-title">
+              {/* <span>special sneaker</span> */}
+              <h3>{product.title}</h3>
+            </div>
+            <p>{product.description}</p>
+            <h3>$ {product.price}</h3>
+            <div className="actions">
+              {/* <div className="amount">
+                <Button onClick={() => removeFromCart(product)}>-</Button>
+                <span>{getAmountOfProduct(product)}</span>
+                <Button onClick={() => addToCart(product)}>+</Button>
+              </div> */}
+              <Button onClick={() => addToCart(product)}>Add to Cart</Button>
+            </div>
+          </div>
+        </div>
+      )}
     </Container>
   );
 };

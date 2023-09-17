@@ -1,0 +1,26 @@
+.container {
+  display: flex;
+  gap: 2rem;
+}
+
+.image-gallery {
+  /* display: flex; */
+}
+
+.product-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.actions {
+  display: flex;
+  gap: 2rem;
+}
+
+.amount {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
