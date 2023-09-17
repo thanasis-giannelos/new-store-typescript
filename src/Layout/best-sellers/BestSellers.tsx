@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import ProductsList from "../../products/ProductsList";
 import useFetch from "../../hooks/useFetch";
 import Product from "../../products/product";
@@ -11,17 +11,21 @@ type ProductsResponse = {
 };
 
 export const BestSellers: React.FC = () => {
+  const dataBeenFetchedRef = useRef(false);
+
   const initialState: ProductsResponse = {
     products: [],
     limit: undefined,
     total: undefined,
   };
 
-  const { data, loading } = useFetch<ProductsResponse>(
+  const { data, loading, dataBeenFetched } = useFetch<ProductsResponse>(
     "https://dummyjson.com/products?limit=10&skip=10",
-    initialState
+    initialState,
+    dataBeenFetchedRef.current
   );
   const { products } = data;
+  dataBeenFetchedRef.current = dataBeenFetched;
 
   return (
     <div

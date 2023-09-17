@@ -13,13 +13,13 @@ import {
 } from "@mui/material";
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import { AuthContext } from "../../auth/AuthContext";
+// import { AuthContext } from "../../auth/AuthContext";
 import { CartContext } from "../../cart/CartContext";
 import useFetch from "../../hooks/useFetch";
 
 const Header: React.FC = () => {
   const { getTotalAmount } = useContext(CartContext);
-  const { signedInUser } = useContext(AuthContext);
+  // const { signedInUser } = useContext(AuthContext);
   const numberOfProducts = getTotalAmount();
 
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -100,20 +100,20 @@ const Header: React.FC = () => {
           </div>
         </Box>
         <Box>
-          {signedInUser && (
+          {/* {signedInUser && (
             <Typography
               sx={{ display: "inline-block", marginRight: "16px" }}
               variant="body1"
             >
               {signedInUser.uid}
             </Typography>
-          )}
+          )} */}
           <IconButton
             size="large"
             edge="start"
             color="inherit"
             component={Link}
-            to="/login"
+            to="#"
             sx={{ mr: 2 }}
           >
             <PersonIcon />
