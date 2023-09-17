@@ -1,13 +1,33 @@
 import { Blocks } from "react-loader-spinner";
 import ProductsList from "./ProductsList";
-import useProducts from "./useProducts";
+import { useParams } from "react-router";
+import useFetch from "../hooks/useFetch";
+import Product from "./product";
+
+type ProductsResponse = {
+  products: Product[];
+  limit?: number;
+  skip?: number;
+  total?: number;
+};
 
 const Products: React.FC = () => {
-  // const { products, selectCategory } = useProducts();
-  const { products, loading } = useProducts();
+  const { category } = useParams();
+
+  const initialState: ProductsResponse = {
+    products: [],
+    limit: undefined,
+    total: undefined,
+  };
+
+  const { data, loading } = useFetch<ProductsResponse>(
+    `https://dummyjson.com/products/category/${category}`,
+    initialState
+  );
+  const { products } = data;
+
   return (
     <>
-      {/* <ProductCategories selectCategory={selectCategory}/> */}
       {loading ? (
         <div
           style={{

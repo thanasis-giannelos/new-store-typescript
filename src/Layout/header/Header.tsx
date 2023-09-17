@@ -15,6 +15,7 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../auth/AuthContext";
 import { CartContext } from "../../cart/CartContext";
+import useFetch from "../../hooks/useFetch";
 
 const Header: React.FC = () => {
   const { getTotalAmount } = useContext(CartContext);
@@ -30,28 +31,11 @@ const Header: React.FC = () => {
     setAnchorEl(null);
   };
 
-  const categories = [
-    "smartphones",
-    "laptops",
-    "fragrances",
-    "skincare",
-    "groceries",
-    "home-decoration",
-    "furniture",
-    "tops",
-    "womens-dresses",
-    "womens-shoes",
-    "mens-shirts",
-    "mens-shoes",
-    "mens-watches",
-    "womens-watches",
-    "womens-bags",
-    "womens-jewellery",
-    "sunglasses",
-    "automotive",
-    "motorcycle",
-    "lighting",
-  ];
+  const initialState = [] as string[];
+  const { data: categories } = useFetch<string[]>(
+    `https://dummyjson.com/products/categories`,
+    initialState
+  );
 
   return (
     <AppBar
@@ -105,7 +89,7 @@ const Header: React.FC = () => {
                   <MenuItem key={index} divider={true} onClick={handleClose}>
                     <Link
                       style={{ textDecoration: "none", color: "inherit" }}
-                      to="#"
+                      to={`categories/${categ}`}
                     >
                       {categ.toUpperCase()}
                     </Link>

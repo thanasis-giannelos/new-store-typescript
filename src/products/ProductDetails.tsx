@@ -6,7 +6,7 @@ import "./ProductDetails.css";
 import ImageGallery from "../Layout/image-slider/ImageGallery";
 import { useContext } from "react";
 import { CartContext } from "../cart/CartContext";
-import { Audio } from "react-loader-spinner";
+import { Blocks } from "react-loader-spinner";
 
 const ProductDetails: React.FC = () => {
   const { id } = useParams();
@@ -22,7 +22,16 @@ const ProductDetails: React.FC = () => {
   return (
     <Container>
       {loading ? (
-        <Audio />
+        <div
+          style={{
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%)",
+          }}
+        >
+          <Blocks />
+        </div>
       ) : (
         <div className="container">
           <ImageGallery images={product.images} />

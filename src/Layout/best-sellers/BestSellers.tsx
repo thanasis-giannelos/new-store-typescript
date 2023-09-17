@@ -21,7 +21,6 @@ export const BestSellers: React.FC = () => {
     "https://dummyjson.com/products?limit=10&skip=10",
     initialState
   );
-  console.log("data", data);
   const { products } = data;
 
   return (

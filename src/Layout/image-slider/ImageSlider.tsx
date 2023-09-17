@@ -65,9 +65,10 @@ const ImageSlider: React.FC = () => {
       >
         {slides.map((_, index) => (
           <IconButton
+            key={index}
             size="small"
             edge="start"
-            color={index === current ? 'error' : 'inherit'}
+            color={index === current ? "error" : "inherit"}
             onClick={() => setCurrent(index)}
           >
             <LensOutlinedIcon />
