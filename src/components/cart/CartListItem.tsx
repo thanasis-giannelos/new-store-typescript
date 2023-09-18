@@ -4,7 +4,7 @@ import {
   CardActions,
   CardContent,
   CardMedia,
-  Typography
+  Typography,
 } from "@mui/material";
 import { useContext } from "react";
 import Product from "../products/product";
@@ -17,7 +17,7 @@ type CartItemsProps = {
 const CartItem: React.FC<CartItemsProps> = ({ item }) => {
   // const [productId] = Object.keys(item);
   // const [productProps] = Object.values(item);
-  const {id, title, thumbnail, price} = item;
+  const { id, title, thumbnail, price } = item;
   const { getGroupById, increase, removeFromCart } = useContext(CartContext);
 
   function addToCartBtnHandler() {
@@ -30,15 +30,15 @@ const CartItem: React.FC<CartItemsProps> = ({ item }) => {
 
   return (
     <li style={{ listStyle: "none", width: "100%" }}>
-      <Card sx={{ display: "flex",  }}>
+      <Card sx={{ display: "flex" }}>
         <CardMedia
           component="img"
           height="140"
           image={thumbnail}
-          sx={{ objectFit: "contain", width: '25%' }}
+          sx={{ objectFit: "contain", width: "25%" }}
         />
 
-        <CardContent sx={{width: '50%'}}>
+        <CardContent sx={{ width: "50%" }}>
           <Typography gutterBottom variant="h6" component="div">
             {title}
           </Typography>
@@ -47,22 +47,18 @@ const CartItem: React.FC<CartItemsProps> = ({ item }) => {
           </Typography>
         </CardContent>
 
-        <CardActions sx={{ justifyContent: "space-around", width: '25%' }}>
+        <CardActions sx={{ justifyContent: "space-around", width: "25%" }}>
           <Button
-            variant="contained"
-            size="small"
-            color="primary"
+            sx={{ backgroundColor: "rgb(255, 193, 7)", color: "#6c757d" }}
             onClick={addToCartBtnHandler}
           >
             +
           </Button>
-          <Typography component="div" variant="subtitle1">
+          <Typography component="span" variant="subtitle1">
             x{getGroupById()[id].length}
           </Typography>
           <Button
-            variant="contained"
-            size="small"
-            color="primary"
+            sx={{ backgroundColor: "rgb(255, 193, 7)", color: "#6c757d" }}
             onClick={removeFromCartBtnHandler}
           >
             -

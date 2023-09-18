@@ -1,13 +1,15 @@
+import PersonIcon from "@mui/icons-material/Person";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import {
   AppBar,
-  Toolbar,
+  Badge,
   Box,
-  Typography,
   Button,
+  IconButton,
   Menu,
   MenuItem,
-  IconButton,
-  Badge,
+  Toolbar,
+  Typography,
 } from "@mui/material";
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
@@ -38,7 +40,7 @@ const Header: React.FC = () => {
     <AppBar
       position="sticky"
       sx={{
-        backgroundColor: "white",
+        backgroundColor: "#6c757d",
         color: "black",
         boxShadow: "none",
         top: 0,
@@ -48,27 +50,33 @@ const Header: React.FC = () => {
       <Toolbar
         sx={{ width: "80%", justifyContent: "space-between", margin: "0 auto" }}
       >
-        <Box width="20rem" display="flex" justifyContent="space-between">
+        <Box
+          width="20rem"
+          display="flex"
+          justifyContent="space-between"
+          alignItems="center"
+        >
           <Typography
             variant="h4"
             component={Link}
             to="/"
             sx={{
               textDecoration: "none",
-              color: "inherit",
+              color: "#ffc107",
               fontWeight: "bold",
             }}
           >
             ReactStore
           </Typography>
 
-          <div>
+          <div style={{backgroundColor: "#ffc107"}}>
             <Button
               id="categories-button"
               aria-controls={open ? "categories-menu" : undefined}
               aria-haspopup="true"
               aria-expanded={open ? "true" : "true"}
               onClick={handleClick}
+              sx={{color: '#6c757d'}}
             >
               Categories
             </Button>
@@ -83,9 +91,9 @@ const Header: React.FC = () => {
             >
               {categories.map((categ, index) => {
                 return (
-                  <MenuItem key={index} divider={true} onClick={handleClose}>
+                  <MenuItem key={index} divider={true} onClick={handleClose} sx={{backgroundColor: "#ffc107"}}>
                     <Link
-                      style={{ textDecoration: "none", color: "inherit" }}
+                      style={{ textDecoration: "none", color: '#6c757d' }}
                       to={`categories/${categ}`}
                     >
                       {categ.toUpperCase()}
@@ -108,20 +116,18 @@ const Header: React.FC = () => {
           <IconButton
             size="large"
             edge="start"
-            color="inherit"
             component={Link}
             to="#"
-            sx={{ mr: 2 }}
+            sx={{ mr: 2, color: "#ffc107" }}
           >
             <PersonIcon />
           </IconButton>
           <IconButton
             size="large"
             edge="start"
-            color="inherit"
             component={Link}
             to="/cart"
-            sx={{ mr: 2 }}
+            sx={{ mr: 2, color: "#ffc107" }}
           >
             <Badge badgeContent={numberOfProducts} color="error">
               <ShoppingCartIcon />

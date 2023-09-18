@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React from "react";
 import useFetch from "../../hooks/useFetch";
 import ProductsList from "../products/ProductsList";
 import Product from "../products/product";
@@ -11,21 +11,17 @@ type ProductsResponse = {
 };
 
 export const BestSellers: React.FC = () => {
-  const dataBeenFetchedRef = useRef(false);
-
   const initialState: ProductsResponse = {
     products: [],
     limit: undefined,
     total: undefined,
   };
 
-  const { data, loading, dataBeenFetched } = useFetch<ProductsResponse>(
-    "https://dummyjson.com/products?limit=10&skip=10",
-    initialState,
-    dataBeenFetchedRef.current
+  const { data, loading } = useFetch<ProductsResponse>(
+    "https://dummyjson.com/products?limit=8&skip=20",
+    initialState
   );
   const { products } = data;
-  dataBeenFetchedRef.current = dataBeenFetched;
 
   return (
     <div
@@ -35,7 +31,13 @@ export const BestSellers: React.FC = () => {
         padding: "1rem",
       }}
     >
-      <div style={{ textAlign: "center" }}>
+      <div
+        style={{
+          textAlign: "center",
+          borderBottom: "5px solid #ffc107",
+          paddingBottom: "2rem",
+        }}
+      >
         <h1>Best Sellers</h1>
       </div>
       <ProductsList products={products} />

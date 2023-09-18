@@ -1,10 +1,12 @@
 import ArrowBackIosNewOutlinedIcon from "@mui/icons-material/ArrowBackIosNewOutlined";
 import ArrowForwardIosOutlinedIcon from "@mui/icons-material/ArrowForwardIosOutlined";
 import LensOutlinedIcon from "@mui/icons-material/LensOutlined";
-import { IconButton } from "@mui/material";
+import { Button, IconButton } from "@mui/material";
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import img1 from "./1.jpg";
 import img2 from "./2.jpg";
+import "./ImageSlider.css";
 const ImageSlider: React.FC = () => {
   const slides = [img1, img2];
 
@@ -33,6 +35,25 @@ const ImageSlider: React.FC = () => {
         backgroundPosition: "center",
       }}
     >
+      <div className="banner">
+        <h1>{current === 0 ? "Men Fashion" : "Woman Fashion"}</h1>
+        <p>
+          Lorem rebum magna amet lorem magna erat diam stet. Sadips duo stet
+          amet amet ndiam elitr ipsum diam
+        </p>
+        <Button
+          component={Link}
+          to={`/categories/${current === 0 ? "mens-shirts" : "womens-dresses"}`}
+          sx={{
+            width: "50%",
+            margin: "0 auto",
+            backgroundColor: "#ffc107",
+            color: "#6c757d",
+          }}
+        >
+          Shop Now
+        </Button>
+      </div>
       <IconButton
         size="large"
         edge="start"
@@ -65,10 +86,10 @@ const ImageSlider: React.FC = () => {
       >
         {slides.map((_, index) => (
           <IconButton
-            key={index}
             size="small"
+            key={index}
             edge="start"
-            color={index === current ? "error" : "inherit"}
+            sx={index === current ? { color: "#ffc107" } : undefined}
             onClick={() => setCurrent(index)}
           >
             <LensOutlinedIcon />

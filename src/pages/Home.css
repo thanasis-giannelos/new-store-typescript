@@ -1,0 +1,22 @@
+.feature-container {
+  margin: 2rem 0;
+  display: flex;
+  justify-content: space-evenly;
+}
+.feature {
+  background-color: white;
+  padding: 0.5rem;
+}
+
+.feature > * {
+  vertical-align: middle;
+  background-color: white;
+}
+
+.feature svg {
+  font-size: 3rem;
+}
+.feature span {
+  font-size: 1.5rem;
+  color: #6c757d;
+}

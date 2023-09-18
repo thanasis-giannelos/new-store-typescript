@@ -1,0 +1,16 @@
+.banner {
+  /* border: 1px solid red; */
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 2rem;
+  width: 30%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 20%;
+}
+/* .banner button {
+  width: 50%;
+  margin: 0 auto;
+} */

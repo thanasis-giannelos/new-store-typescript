@@ -1,10 +1,11 @@
-import { Container, Button } from "@mui/material";
+import { Button, Container } from "@mui/material";
 import { useContext } from "react";
 import { Blocks } from "react-loader-spinner";
 import { useParams } from "react-router";
 import useFetch from "../../hooks/useFetch";
 import { CartContext } from "../cart/CartContext";
-import ImageGallery from "../image-slider/ImageGallery";
+import ImageGallery from "../image-gallery/ImageGallery";
+import "./ProductDetails.css";
 import Product from "./product";
 
 const ProductDetails: React.FC = () => {

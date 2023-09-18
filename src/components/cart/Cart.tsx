@@ -8,7 +8,8 @@ import CartSummary from "./CartSummary";
 const Cart: React.FC = () => {
   const [orderSent, setOrderSent] = useState(false);
 
-  const { getGroupById, getTotalAmount, getTotalCost } = useContext(CartContext);
+  const { getGroupById, getTotalAmount, getTotalCost } =
+    useContext(CartContext);
 
   const obj = getGroupById();
   // const cartItems = Object.keys(obj).map((id) => obj[id][0]);
@@ -25,9 +26,8 @@ const Cart: React.FC = () => {
               justifyContent: "space-between",
               alignItems: "center",
               marginY: 5,
-              border: "5px #1976d2 solid",
+              borderBottom: "5px rgb(255, 193, 7) solid",
               paddingY: "12px",
-              borderRadius: "4px"
             }}
           >
             <CartSummary totalPrice={getTotalCost()} />

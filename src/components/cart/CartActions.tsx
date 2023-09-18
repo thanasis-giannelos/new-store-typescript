@@ -14,8 +14,14 @@ const CartActions: React.FC<CartActionsProps> = ({ onOrder }) => {
     clearCart();
   };
 
-  return <Button variant="contained" size="small" onClick={clickHandler}>Checkout</Button>;
-
+  return (
+    <Button
+      onClick={clickHandler}
+      sx={{ backgroundColor: "rgb(255, 193, 7)", color: "#6c757d" }}
+    >
+      Checkout
+    </Button>
+  );
 };
 
 export default CartActions;

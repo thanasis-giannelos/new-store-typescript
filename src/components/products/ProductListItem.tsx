@@ -6,8 +6,7 @@ import {
   CardActions,
   CardContent,
   CardMedia,
-  IconButton,
-  Typography,
+  IconButton
 } from "@mui/material";
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
@@ -35,7 +34,7 @@ const ProductListItem: React.FC<ProductListItemProps> = ({ item }) => {
             component="img"
             height="250"
             image={thumbnail}
-            sx={{ objectFit: "contain" }}
+            sx={{ objectFit: "contain", paddingTop: '8px' }}
           />
           <CardContent sx={{ fontSize: "1rem" }}>
             <h5
@@ -54,11 +53,11 @@ const ProductListItem: React.FC<ProductListItemProps> = ({ item }) => {
             </h5>
           </CardContent>
         </CardActionArea>
-        <CardActions sx={{ justifyContent: "space-around" }}>
+        <CardActions sx={{ justifyContent: "space-around", backgroundColor: 'rgb(255, 193, 7)', padding: '0' }}>
           <IconButton
             size="large"
-            color="inherit"
             onClick={addToCartBtnHandler}
+            sx={{backgroundColor: 'rgb(255, 193, 7)', color: '#6c757d'}}
           >
             <AddShoppingCartOutlinedIcon />
           </IconButton>

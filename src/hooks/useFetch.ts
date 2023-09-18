@@ -1,10 +1,10 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 
 function useFetch<T>(
   url: string,
   initialState: T,
-  dataBeenFetched: boolean
-): { data: T; loading: boolean; dataBeenFetched: boolean } {
+): { data: T; loading: boolean } {
+
   const [data, setData] = useState<T>(initialState);
   const [loading, setLoading] = useState(true);
 
@@ -13,7 +13,6 @@ function useFetch<T>(
       const res = await fetch(url);
       const jsonData = (await res.json()) as T;
       setData(jsonData);
-      dataBeenFetched = true;
     } catch (error) {
       console.log(error);
     } finally {
@@ -22,10 +21,10 @@ function useFetch<T>(
   };
 
   useEffect(() => {
-    if (!dataBeenFetched) fetchData(url);
+    fetchData(url);
   }, [url]);
 
-  return { data, loading, dataBeenFetched };
+  return { data, loading };
 }
 
 export default useFetch;
